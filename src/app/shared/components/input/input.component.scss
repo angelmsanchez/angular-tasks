@@ -1,0 +1,21 @@
+.input-container {
+  font-size: 24px;
+}
+
+:host ::ng-deep mat-form-field {
+  .mat-form-field-underline {
+    height: 0;
+  }
+
+  .mat-form-field-ripple {
+    height: 0;
+  }
+
+  .mat-form-field-infix {
+    border-top: 0;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+}
