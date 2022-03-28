@@ -1,3 +1,5 @@
 <section class="main">
-  <p>main-tasks works!</p>
+  <div *ngFor="let task of tasks">
+    {{ task.value }}
+  </div>
 </section>

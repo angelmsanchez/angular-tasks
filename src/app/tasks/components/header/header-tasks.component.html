@@ -1,3 +1,4 @@
-<section class="header-tasks">
-  <app-input (onChangeEvent)="handleChangeInput($event)"></app-input>
+<section class="header-tasks-container">
+  <app-checkbox (onChange)="markAll($event)"></app-checkbox>
+  <app-input (onChange)="handleChangeInput($event)"></app-input>
 </section>

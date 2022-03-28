@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TaskInterface } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-main-tasks',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-tasks.component.scss']
 })
 export class MainTasksComponent implements OnInit {
+  @Input() tasks?: TaskInterface[];
 
   constructor() { }
 

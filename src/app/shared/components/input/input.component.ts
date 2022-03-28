@@ -1,5 +1,9 @@
 import {
-  Component, Input, SimpleChanges, EventEmitter, Output
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -8,10 +12,15 @@ import {
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent {
-  @Output() onChangeEvent: EventEmitter<any> = new EventEmitter();
+  @ViewChild('inputRef', { static: false }) inputRef: ElementRef | undefined;
 
-  handleEnter(value: string): void {
-    console.log('applyFilter', value);
-    if (value) this.onChangeEvent.emit(value);
+  @Output() onChange: EventEmitter<string> = new EventEmitter();
+
+  handleEnter(): void {
+    const value = this.inputRef?.nativeElement.value;
+    if (this.inputRef && value) {
+      this.onChange.emit(value);
+      this.inputRef.nativeElement.value = '';
+    }
   }
 }
