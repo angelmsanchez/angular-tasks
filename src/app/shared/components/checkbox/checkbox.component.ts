@@ -8,8 +8,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent {
-  @Input() label: string = '';
-  @Input() disabled?: boolean;
+  @Input() title: string = '';
+  @Input() checked: boolean = false;
 
   @Output() onChange: EventEmitter<boolean> = new EventEmitter();
 

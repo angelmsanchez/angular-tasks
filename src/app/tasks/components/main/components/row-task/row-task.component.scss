@@ -1,0 +1,9 @@
+.row-task-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  app-checkbox{
+    margin: 0 1rem;
+  }
+}

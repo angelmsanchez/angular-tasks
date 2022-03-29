@@ -3,13 +3,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
 
-import { HeaderTasksComponent } from './header-tasks.component';
+import { RowTaskComponent } from './row-task.component';
 import { reducers } from 'src/app/store/reducers';
-import { TasksUtilService } from '../../services';
 
-describe('HeaderTasksComponent', () => {
-  let component: HeaderTasksComponent;
-  let fixture: ComponentFixture<HeaderTasksComponent>;
+describe('RowTaskComponent', () => {
+  let component: RowTaskComponent;
+  let fixture: ComponentFixture<RowTaskComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,17 +16,14 @@ describe('HeaderTasksComponent', () => {
         StoreModule.forRoot(reducers),
       ],
       declarations: [
-        HeaderTasksComponent,
-      ],
-      providers: [
-        TasksUtilService,
+        RowTaskComponent,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderTasksComponent);
+    fixture = TestBed.createComponent(RowTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

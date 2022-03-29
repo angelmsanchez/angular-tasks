@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Output,
   ViewChild,
+  Input,
 } from '@angular/core';
 
 @Component({
@@ -13,13 +14,13 @@ import {
 })
 export class InputComponent {
   @ViewChild('inputRef', { static: false }) inputRef: ElementRef | undefined;
+  @Input() value: string = '';
 
   @Output() onChange: EventEmitter<string> = new EventEmitter();
 
-  handleEnter(): void {
-    const value = this.inputRef?.nativeElement.value;
-    if (this.inputRef && value) {
-      this.onChange.emit(value);
+  handleChange(): void {
+    if (this.inputRef) {
+      this.onChange.emit(this.inputRef?.nativeElement.value);
       this.inputRef.nativeElement.value = '';
     }
   }

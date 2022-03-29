@@ -13,7 +13,9 @@ import {
   HeaderTasksComponent,
   FooterTasksComponent,
   MainTasksComponent,
+  RowTaskComponent,
 } from './components';
+import { TasksUtilService } from './services';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,15 @@ import {
     HeaderTasksComponent,
     FooterTasksComponent,
     MainTasksComponent,
+    RowTaskComponent,
   ],
   imports: [
     CommonModule,
     TasksRoutingModule,
     SharedModule,
+  ],
+  providers: [
+    TasksUtilService,
   ]
 })
 export class TasksModule { }

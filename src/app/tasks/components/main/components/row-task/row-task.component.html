@@ -1,0 +1,4 @@
+<section class="row-task-container">
+  <app-checkbox title="Mark One" [checked]="task.completed" (onChange)="handleCheck($event)"></app-checkbox>
+  <app-input [value]="task.value" (onChange)="handleChangeInput($event)"></app-input>
+</section>

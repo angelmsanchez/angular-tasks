@@ -14,4 +14,8 @@ export class MainTasksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackByMethod(index: number, element: TaskInterface): string {
+    return element.id;
+  }
+
 }

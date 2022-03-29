@@ -1,5 +1,3 @@
 <section class="checkbox-container">
-  <label *ngIf="label">{{ label }}</label>
-  <mat-checkbox matInput color="primary" (change)="clickCheckbox($event)">
-  </mat-checkbox>
+  <mat-checkbox matInput [title]="title" [checked]="checked" (change)="clickCheckbox($event)"></mat-checkbox>
 </section>

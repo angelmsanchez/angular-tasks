@@ -1,0 +1,21 @@
+::ng-deep mat-checkbox {
+  .mat-checkbox-inner-container {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.mat-checkbox-checked.mat-accent {
+    .mat-checkbox-frame {
+      border-color: #737373;
+      z-index: 1;
+    }
+
+    .mat-checkbox-background {
+      background: #ffffff;
+
+      svg {
+        filter: invert(45%) sepia(7%) saturate(7%) hue-rotate(52deg) brightness(96%) contrast(86%);
+      }
+    }
+  }
+}

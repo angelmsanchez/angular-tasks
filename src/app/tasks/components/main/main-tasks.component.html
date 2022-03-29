@@ -1,5 +1,5 @@
 <section class="main">
-  <div *ngFor="let task of tasks">
-    {{ task.value }}
+  <div *ngFor="let task of tasks; trackBy: trackByMethod">
+    <app-row-task [task]="task"></app-row-task>
   </div>
 </section>
