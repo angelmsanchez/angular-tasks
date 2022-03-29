@@ -1,5 +1,5 @@
 <section class="input-container">
   <mat-form-field>
-    <input matInput #inputRef [value]="value" (keydown.enter)="handleChange()" (blur)="handleChange()" autofocus>
+    <input matInput #inputRef [value]="value" (keydown.enter)="handleKeyEnter()" (blur)="handleOnBlur()" autofocus>
   </mat-form-field>
 </section>

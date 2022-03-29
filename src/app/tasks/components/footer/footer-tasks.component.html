@@ -1,11 +1,11 @@
 <section class="footer">
   <div class="footer__counter">
-    2 Items left
+    {{ tasksIncompleted }} Items left
   </div>
-  <app-button title="All"></app-button>
-  <app-button title="Active"></app-button>
-  <app-button title="Completed"></app-button>
+  <app-button title="All" [active]="true" (click)="navigateTo('/tasks')"></app-button>
+  <app-button title="Active" (click)="navigateTo('/tasks/active')"></app-button>
+  <app-button title="Completed" (click)="navigateTo('/tasks/completed')"></app-button>
   <div class="footer__clear-completed">
-    <app-button title="Clear completed"></app-button>
+    <app-button title="Clear completed" (click)="clearCompleted()"></app-button>
   </div>
 </section>

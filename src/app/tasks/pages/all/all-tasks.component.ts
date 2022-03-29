@@ -7,11 +7,11 @@ import { TaskInterface } from 'src/app/shared/interfaces';
 import { StateInterface } from 'src/app/store/reducers';
 
 @Component({
-  selector: 'app-list-tasks',
-  templateUrl: './list-tasks.component.html',
-  styleUrls: ['./list-tasks.component.scss']
+  selector: 'app-all-tasks',
+  templateUrl: './all-tasks.component.html',
+  styleUrls: ['./all-tasks.component.scss']
 })
-export class ListTasksComponent implements OnInit, OnDestroy {
+export class AllTasksComponent implements OnInit, OnDestroy {
   tasks: TaskInterface[] = [];
 
   private subscriptionTasks: Subscription = new Subscription;
@@ -32,8 +32,8 @@ export class ListTasksComponent implements OnInit, OnDestroy {
     this.subscriptionTasks = this.store.pipe(
       select(store => store.app.tasks))
       .subscribe(tasks => {
-        console.log('subscribe-tasks', tasks);
         this.tasks = [...tasks];
+        localStorage.setItem('tasks', JSON.stringify(this.tasks));
       });
   }
 

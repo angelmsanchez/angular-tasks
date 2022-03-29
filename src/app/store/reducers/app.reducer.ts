@@ -7,7 +7,7 @@ export interface State {
 }
 
 const initialState: State = {
-  tasks: [],
+  tasks: JSON.parse(localStorage.getItem('tasks') || '') || [],
 };
 
 export function reducer(state: State = initialState, action: ActionInterface): State {
@@ -32,6 +32,20 @@ export function reducer(state: State = initialState, action: ActionInterface): S
         ...state,
         tasks: [
           ...state.tasks.filter(task => task.id !== action.payload.id),
+        ],
+      };
+    case AppActions.CLEAR_COMPLETED_TASKS:
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks.filter(task => !task.completed),
+        ],
+      };
+    case AppActions.MARK_ALL_COMPLETED_TASKS:
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks.map(task => ({ ...task, completed: action.payload })),
         ],
       };
     default:

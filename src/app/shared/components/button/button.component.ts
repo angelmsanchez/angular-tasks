@@ -4,7 +4,6 @@ import {
   Output,
   Input,
 } from '@angular/core';
-import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -13,10 +12,11 @@ import { Event } from '@angular/router';
 })
 export class ButtonComponent {
   @Input() title: string = '';
+  @Input() active: boolean = false;
 
-  @Output() onClick: EventEmitter<any> = new EventEmitter();
+  @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter();
 
-  handleClick(event: any): void {
+  handleClick(event: MouseEvent): void {
     this.onClick.emit(event);
   }
 }

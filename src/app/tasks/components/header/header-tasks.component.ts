@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
 import { StateInterface } from 'src/app/store/reducers';
 import * as AppActions from 'src/app/store/actions/';
 import { TasksUtilService } from '../../services';
+import { TaskInterface } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-header-tasks',
@@ -12,6 +13,9 @@ import { TasksUtilService } from '../../services';
   styleUrls: ['./header-tasks.component.scss']
 })
 export class HeaderTasksComponent {
+  @Input() tasks: TaskInterface[] = [];
+
+  checkedMarkAll: boolean = false;
 
   constructor(
     private store: Store<StateInterface>,
@@ -28,7 +32,7 @@ export class HeaderTasksComponent {
     }
   }
 
-  markAll(value: boolean): void {
-    console.log('markAll', value);
+  markAll(checked: boolean): void {
+    this.store.dispatch(new AppActions.MarkAllCompletedTask(checked));
   }
 }

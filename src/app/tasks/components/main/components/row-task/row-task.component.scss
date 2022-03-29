@@ -1,9 +1,45 @@
 .row-task-container {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 -2px 1px rgb(0 0 0 / 3%);
 
-  app-checkbox{
+  &.disabled {
+    color: lightgrey;
+  }
+
+  app-input {
+    flex-grow: 1;
+  }
+
+  app-checkbox {
     margin: 0 1rem;
+  }
+
+  button {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    button {
+      display: initial;
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+:host ::ng-deep app-checkbox {
+  .mat-checkbox-layout {
+    .mat-checkbox-inner-container {
+      width: 25px;
+      height: 25px;
+    }
+
+    .mat-checkbox-frame {
+      border-radius: 50%;
+    }
   }
 }

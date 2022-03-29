@@ -11,15 +11,12 @@ import * as AppActions from 'src/app/store/actions/';
   templateUrl: './row-task.component.html',
   styleUrls: ['./row-task.component.scss']
 })
-export class RowTaskComponent implements OnInit {
+export class RowTaskComponent {
   @Input() task!: TaskInterface;
 
   constructor(
     private store: Store<StateInterface>,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   handleCheck(value: boolean): void {
     this.store.dispatch(new AppActions.UpdateTask({
@@ -29,6 +26,10 @@ export class RowTaskComponent implements OnInit {
   }
 
   handleChangeInput(value: string): void {
+    if (!value) {
+      this.handleDelete();
+      return;
+    }
     this.store.dispatch(new AppActions.UpdateTask({
       ...this.task,
       value,

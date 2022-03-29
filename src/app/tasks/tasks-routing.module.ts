@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import {
-  ListTasksComponent,
+  AllTasksComponent,
   ActiveTasksComponent,
   CompletedTasksComponent,
   IndexTasksComponent,
@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ListTasksComponent,
+        component: AllTasksComponent,
       },
       {
         path: 'active',

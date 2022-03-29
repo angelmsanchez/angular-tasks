@@ -3,12 +3,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
 
-import { ListTasksComponent } from './list-tasks.component';
+import { AllTasksComponent } from './all-tasks.component';
 import { reducers } from 'src/app/store/reducers';
 
-describe('ListTasksComponent', () => {
-  let component: ListTasksComponent;
-  let fixture: ComponentFixture<ListTasksComponent>;
+describe('AllTasksComponent', () => {
+  let component: AllTasksComponent;
+  let fixture: ComponentFixture<AllTasksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,14 +16,14 @@ describe('ListTasksComponent', () => {
         StoreModule.forRoot(reducers),
       ],
       declarations: [
-        ListTasksComponent,
+        AllTasksComponent,
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListTasksComponent);
+    fixture = TestBed.createComponent(AllTasksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

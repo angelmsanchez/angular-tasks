@@ -1,6 +1,7 @@
 <section class="header-tasks-container">
   <div class="header-tasks-container__checkbox">
-    <app-checkbox title="Mark All" (onChange)="markAll($event)"></app-checkbox>
+    <app-checkbox *ngIf="tasks.length > 0" [checked]="checkedMarkAll" title="Mark All" (onChange)="markAll($event)">
+    </app-checkbox>
   </div>
-  <app-input (onChange)="handleChangeInput($event)"></app-input>
+  <app-input (onKeyEnter)="handleChangeInput($event)"></app-input>
 </section>

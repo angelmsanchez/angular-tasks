@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatIconModule } from '@angular/material/icon';
+
 import { TasksRoutingModule } from './tasks-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import {
-  ListTasksComponent,
+  AllTasksComponent,
   ActiveTasksComponent,
   IndexTasksComponent,
   CompletedTasksComponent,
@@ -20,7 +22,7 @@ import { TasksUtilService } from './services';
 @NgModule({
   declarations: [
     // pages
-    ListTasksComponent,
+    AllTasksComponent,
     ActiveTasksComponent,
     IndexTasksComponent,
     CompletedTasksComponent,
@@ -34,6 +36,7 @@ import { TasksUtilService } from './services';
     CommonModule,
     TasksRoutingModule,
     SharedModule,
+    MatIconModule,
   ],
   providers: [
     TasksUtilService,

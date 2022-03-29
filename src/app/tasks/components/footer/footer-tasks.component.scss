@@ -1,8 +1,7 @@
 .footer {
   color: #777;
   padding: 10px 15px;
-  height: 20px;
-  text-align: center;
+  height: 50px;
   border-top: 1px solid #e6e6e6;
   position: relative;
   display: flex;
@@ -55,10 +54,12 @@
 
   &__clear-completed {
     margin-left: auto;
+    width: 135px;
   }
 
   &__counter {
     margin-right: auto;
+    width: 135px;
   }
 
   .info {
