@@ -12,7 +12,7 @@ import * as AppActions from 'src/app/store/actions/';
   styleUrls: ['./row-task.component.scss']
 })
 export class RowTaskComponent {
-  @Input() task!: TaskInterface;
+  @Input() task: TaskInterface;
 
   constructor(
     private store: Store<StateInterface>,

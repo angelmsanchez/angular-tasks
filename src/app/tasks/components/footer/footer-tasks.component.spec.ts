@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { StoreModule } from '@ngrx/store';
 
@@ -16,6 +17,7 @@ describe('FooterTasksComponent', () => {
       imports: [
         StoreModule.forRoot(reducers),
         SharedModule,
+        RouterTestingModule,
       ],
       declarations: [
         FooterTasksComponent,
@@ -27,7 +29,6 @@ describe('FooterTasksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FooterTasksComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

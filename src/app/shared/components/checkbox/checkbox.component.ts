@@ -12,7 +12,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 @Component({
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss']
+  styleUrls: ['./checkbox.component.scss'],
 })
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() title: string = '';

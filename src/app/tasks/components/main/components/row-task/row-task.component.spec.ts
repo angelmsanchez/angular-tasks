@@ -25,7 +25,11 @@ describe('RowTaskComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RowTaskComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.task = {
+      value: 'task-1',
+      id: '1',
+      completed: false,
+    };
   });
 
   it('should create', () => {

@@ -1,8 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import { StoreModule } from '@ngrx/store';
+
 import { ActiveTasksComponent } from './active-tasks.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { reducers } from 'src/app/store/reducers';
 
 describe('ActiveTasksComponent', () => {
   let component: ActiveTasksComponent;
@@ -12,6 +15,7 @@ describe('ActiveTasksComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         SharedModule,
+        StoreModule.forRoot(reducers),
       ],
       declarations: [
         ActiveTasksComponent,
@@ -23,7 +27,6 @@ describe('ActiveTasksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ActiveTasksComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -7,7 +7,7 @@ export interface State {
 }
 
 const initialState: State = {
-  tasks: JSON.parse(localStorage.getItem('tasks') || '') || [],
+  tasks: [],
 };
 
 export function reducer(state: State = initialState, action: ActionInterface): State {

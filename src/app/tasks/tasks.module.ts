@@ -40,6 +40,6 @@ import { TasksUtilService } from './services';
   ],
   providers: [
     TasksUtilService,
-  ]
+  ],
 })
 export class TasksModule { }

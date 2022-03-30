@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule } from '@ngrx/store';
 
@@ -17,6 +18,7 @@ describe('HeaderTasksComponent', () => {
       imports: [
         StoreModule.forRoot(reducers),
         SharedModule,
+        BrowserAnimationsModule,
       ],
       declarations: [
         HeaderTasksComponent,
@@ -31,7 +33,6 @@ describe('HeaderTasksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderTasksComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -33,7 +33,6 @@ export class AllTasksComponent implements OnInit, OnDestroy {
       select(store => store.app.tasks))
       .subscribe(tasks => {
         this.tasks = [...tasks];
-        localStorage.setItem('tasks', JSON.stringify(this.tasks));
       });
   }
 

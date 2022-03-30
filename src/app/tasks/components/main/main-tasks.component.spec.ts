@@ -23,7 +23,6 @@ describe('MainTasksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MainTasksComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
