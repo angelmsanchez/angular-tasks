@@ -1,5 +1,13 @@
 .input-container {
   font-size: 24px;
+
+  input {
+    color: #d3d3d3bd;
+
+    &:focus {
+      color: grey;
+    }
+  }
 }
 
 :host ::ng-deep mat-form-field {

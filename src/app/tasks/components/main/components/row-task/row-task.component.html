@@ -1,6 +1,7 @@
-<section class="row-task-container"  [ngClass]="{disabled: task.completed}">
+<section class="row-task-container" [ngClass]="{disabled: task.completed}">
   <app-checkbox title="Mark One" [checked]="task.completed" (onChecked)="handleCheck($event)"></app-checkbox>
-  <app-input [value]="task.value" (onBlur)="handleChangeInput($event)" (onKeyEnter)="handleChangeInput($event)"></app-input>
+  <app-input [value]="task.value" [isEditable]="true" (onBlur)="handleChangeInput($event)"
+    (onKeyEnter)="handleChangeInput($event)"></app-input>
   <button mat-icon-button aria-label="Delete" title="Delete row" (click)="handleDelete()">
     <mat-icon>delete_forever</mat-icon>
   </button>

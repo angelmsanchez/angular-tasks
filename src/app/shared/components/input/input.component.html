@@ -1,11 +1,13 @@
 <section class="input-container">
-  <mat-form-field>
-    <input 
+  <mat-form-field (dblclick)="dblclick()">
+    <input
+      #inputChild 
       matInput 
       [formControl]="formControl" 
       (keydown.enter)="handleKeyEnter()" 
       (keydown.escape)="handleKeyEscape()"
       (blur)="handleOnBlur()"
+      [disabled]="isEditable"
       autofocus
     />
   </mat-form-field>

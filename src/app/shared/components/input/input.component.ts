@@ -4,6 +4,8 @@ import {
   Output,
   Input,
   SimpleChanges,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 
@@ -13,8 +15,11 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements ControlValueAccessor {
+  @ViewChild('inputChild') inputChild: ElementRef;
+
   @Input() value?: string = '';
   @Input() isDeleteValue?: boolean = false;
+  @Input() isEditable: boolean = false;
 
   @Output() onKeyEnter: EventEmitter<string> = new EventEmitter();
   @Output() onBlur: EventEmitter<string> = new EventEmitter();
@@ -23,12 +28,18 @@ export class InputComponent implements ControlValueAccessor {
 
   ngOnInit(): void {
     if (this.value) this.writeValue(this.value);
+    if (this.isEditable) this.setDisabledState(this.isEditable);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['value'] && changes['value'].currentValue !== changes['value'].previousValue) {
       this.writeValue(this.value);
     }
+  }
+
+  dblclick(): void {
+    this.formControl.enable();
+    this.inputChild.nativeElement.focus();
   }
 
   onChange = (_: any) => { };
@@ -50,13 +61,19 @@ export class InputComponent implements ControlValueAccessor {
   handleKeyEnter(): void {
     if (this.value !== this.formControl.value) this.onKeyEnter.emit(this.formControl.value);
     if (this.isDeleteValue) this.writeValue('');
+    if (this.isEditable) this.formControl.disable();
   }
 
   handleOnBlur(): void {
     if (this.value !== this.formControl.value) this.onBlur.emit(this.formControl.value);
+    if (this.isEditable) this.formControl.disable();
   }
 
   handleKeyEscape(): void {
     if (this.value !== this.formControl.value) this.writeValue(this.value);
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    isDisabled ? this.formControl.disable() : this.formControl.enable();
   }
 }
