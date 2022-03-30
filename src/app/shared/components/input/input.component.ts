@@ -1,9 +1,7 @@
 import {
   Component,
-  ElementRef,
   EventEmitter,
   Output,
-  ViewChild,
   Input,
   SimpleChanges,
 } from '@angular/core';
@@ -56,5 +54,9 @@ export class InputComponent implements ControlValueAccessor {
 
   handleOnBlur(): void {
     if (this.value !== this.formControl.value) this.onBlur.emit(this.formControl.value);
+  }
+
+  handleKeyEscape(): void {
+    if (this.value !== this.formControl.value) this.writeValue(this.value);
   }
 }

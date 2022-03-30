@@ -16,6 +16,7 @@ export class FooterTasksComponent implements OnChanges {
   @Input() tasks: TaskInterface[] = [];
 
   tasksIncompleted: number = 0;
+  textCounter: string = 'items left';
   buttonActive: string = '';
   hasCompletedTasks: boolean = false;
   hasActiveTasks: boolean = false;
@@ -33,6 +34,7 @@ export class FooterTasksComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['tasks'] && changes['tasks'].currentValue !== changes['tasks'].previousValue) {
       this.tasksIncompleted = this.tasks.filter(task => !task.completed).length;
+      this.textCounter = this.tasksIncompleted === 1 ? 'item left' : 'items left';
       this.hasCompletedTasks = this.tasks.some(task => task.completed);
       this.hasActiveTasks = this.tasks.some(task => !task.completed);
     }

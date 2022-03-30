@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  OnInit,
+} from '@angular/core';
+import { ControlValueAccessor, FormControl } from '@angular/forms';
 
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
@@ -7,13 +14,34 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss']
 })
-export class CheckboxComponent {
+export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() title: string = '';
   @Input() checked: boolean = false;
 
-  @Output() onChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() onChecked: EventEmitter<boolean> = new EventEmitter();
+
+  formControl: FormControl = new FormControl();
+
+  onChange = (_: any) => { };
+  onTouch = () => { };
+
+  ngOnInit(): void {
+    this.writeValue(this.checked);
+  }
+
+  writeValue(value: any): void {
+    this.formControl.setValue(value || false);
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouch = fn;
+  }
 
   clickCheckbox(event: MatCheckboxChange): void {
-    this.onChange.emit(event.checked);
+    this.onChecked.emit(event.checked);
   }
 }

@@ -1,3 +1,10 @@
 <section class="checkbox-container">
-  <mat-checkbox matInput [title]="title" [checked]="checked" (change)="clickCheckbox($event)"></mat-checkbox>
+  <mat-checkbox 
+    matInput 
+    [formControl]="formControl"
+    [title]="title" 
+    [checked]="checked" 
+    (change)="clickCheckbox($event)"
+  >
+  </mat-checkbox>
 </section>

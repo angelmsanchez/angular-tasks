@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CheckboxComponent } from './checkbox.component';
@@ -8,9 +9,13 @@ describe('CheckboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CheckboxComponent ]
-    })
-    .compileComponents();
+      imports: [
+      ],
+      declarations: [
+        CheckboxComponent,
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    });
   });
 
   beforeEach(() => {

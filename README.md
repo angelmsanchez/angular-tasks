@@ -8,7 +8,7 @@ Run `npm install` or `yarn install`
 
 ## Development server
 
-Run `npm run start` and your default browser open a tab to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run start` and your default browser open a tab to `http://localhost:4200/`.
 
 ## Running unit tests
 

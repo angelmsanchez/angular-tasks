@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputComponent } from './input.component';
@@ -8,9 +9,13 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputComponent ]
-    })
-    .compileComponents();
+      imports: [
+      ],
+      declarations: [
+        InputComponent,
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    });
   });
 
   beforeEach(() => {
