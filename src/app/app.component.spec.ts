@@ -9,14 +9,6 @@ describe('AppComponent', () => {
   let component: AppComponent;
 
   beforeEach(async () => {
-    // await TestBed.configureTestingModule({
-    //   imports: [
-    //     RouterTestingModule
-    //   ],
-    //   declarations: [
-    //     AppComponent
-    //   ],
-    // }).compileComponents();
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -35,16 +27,5 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
-  });
-
-  xit(`should have as title 'angular-tasks'`, () => {
-    expect(component.title).toEqual('angular-tasks');
-  });
-
-  xit('should render title', () => {
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-tasks app is running!');
   });
 });

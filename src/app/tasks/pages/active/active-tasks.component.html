@@ -1,5 +1,5 @@
 <app-header-tasks [tasks]="tasks"></app-header-tasks>
 <ng-container *ngIf="tasks.length > 0">
-  <app-main-tasks [tasks]="tasks"></app-main-tasks>
+  <app-main-tasks [tasks]="tasksFilter"></app-main-tasks>
   <app-footer-tasks [tasks]="tasks"></app-footer-tasks>
 </ng-container>

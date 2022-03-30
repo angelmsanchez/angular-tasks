@@ -16,15 +16,25 @@ export class FooterTasksComponent implements OnChanges {
   @Input() tasks: TaskInterface[] = [];
 
   tasksIncompleted: number = 0;
+  buttonActive: string = '';
+  hasCompletedTasks: boolean = false;
+  hasActiveTasks: boolean = false;
 
   constructor(
     private store: Store<StateInterface>,
     private router: Router,
   ) { }
 
+  ngOnInit(): void {
+    const routes = this.router.url.split('/')
+    this.buttonActive = routes[routes.length - 1];
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['tasks'] && changes['tasks'].currentValue !== changes['tasks'].previousValue) {
       this.tasksIncompleted = this.tasks.filter(task => !task.completed).length;
+      this.hasCompletedTasks = this.tasks.some(task => task.completed);
+      this.hasActiveTasks = this.tasks.some(task => !task.completed);
     }
   }
 

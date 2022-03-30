@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { FooterTasksComponent } from './footer-tasks.component';
 import { reducers } from 'src/app/store/reducers';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('FooterTasksComponent', () => {
   let component: FooterTasksComponent;
@@ -14,6 +15,7 @@ describe('FooterTasksComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(reducers),
+        SharedModule,
       ],
       declarations: [
         FooterTasksComponent,

@@ -13,6 +13,7 @@ import { StateInterface } from 'src/app/store/reducers';
 })
 export class ActiveTasksComponent implements OnInit {
   tasks: TaskInterface[] = [];
+  tasksFilter: TaskInterface[] = [];
 
   private subscriptionTasks: Subscription = new Subscription;
 
@@ -33,7 +34,7 @@ export class ActiveTasksComponent implements OnInit {
       select(store => store.app.tasks))
       .subscribe(tasks => {
         this.tasks = [...tasks];
-        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        this.tasksFilter = [...tasks.filter(task => !task.completed)];
       });
   }
 }

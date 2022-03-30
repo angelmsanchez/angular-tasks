@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +26,8 @@ import {
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCheckboxModule,
     MatInputModule,
     MatButtonModule,

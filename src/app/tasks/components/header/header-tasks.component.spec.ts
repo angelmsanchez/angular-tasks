@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { HeaderTasksComponent } from './header-tasks.component';
 import { reducers } from 'src/app/store/reducers';
 import { TasksUtilService } from '../../services';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('HeaderTasksComponent', () => {
   let component: HeaderTasksComponent;
@@ -15,6 +16,7 @@ describe('HeaderTasksComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot(reducers),
+        SharedModule,
       ],
       declarations: [
         HeaderTasksComponent,

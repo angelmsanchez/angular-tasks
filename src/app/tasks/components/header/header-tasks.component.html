@@ -3,5 +3,5 @@
     <app-checkbox *ngIf="tasks.length > 0" [checked]="checkedMarkAll" title="Mark All" (onChange)="markAll($event)">
     </app-checkbox>
   </div>
-  <app-input (onKeyEnter)="handleChangeInput($event)"></app-input>
+  <app-input [isDeleteValue]="true" (onKeyEnter)="handleChangeInput($event)"></app-input>
 </section>

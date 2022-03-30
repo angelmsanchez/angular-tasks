@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ActiveTasksComponent } from './active-tasks.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('ActiveTasksComponent', () => {
   let component: ActiveTasksComponent;
@@ -10,6 +11,7 @@ describe('ActiveTasksComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        SharedModule,
       ],
       declarations: [
         ActiveTasksComponent,
