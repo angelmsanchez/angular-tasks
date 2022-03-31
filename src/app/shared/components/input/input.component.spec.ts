@@ -29,4 +29,20 @@ describe('InputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should send then event when click the checkbox', () => {
+    spyOn(component.onKeyEnter, 'emit');
+
+    component.handleKeyEnter();
+
+    expect(component.onKeyEnter.emit).toHaveBeenCalled();
+  });
+
+  it('should send then event when click the checkbox', () => {
+    spyOn(component.onBlur, 'emit');
+
+    component.handleOnBlur();
+
+    expect(component.onBlur.emit).toHaveBeenCalled();
+  });
 });

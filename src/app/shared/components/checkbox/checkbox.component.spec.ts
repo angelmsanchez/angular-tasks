@@ -29,4 +29,13 @@ describe('CheckboxComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should send then event when click the checkbox', () => {
+    const event: any = {};
+    spyOn(component.onChecked, 'emit');
+
+    component.clickCheckbox(event);
+
+    expect(component.onChecked.emit).toHaveBeenCalled();
+  });
 });

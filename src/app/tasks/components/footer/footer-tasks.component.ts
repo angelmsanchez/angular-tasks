@@ -27,7 +27,7 @@ export class FooterTasksComponent implements OnChanges {
   ) { }
 
   ngOnInit(): void {
-    const routes = this.router.url.split('/')
+    const routes = this.router.url.split('/');
     this.buttonActive = routes[routes.length - 1];
   }
 
