@@ -12,8 +12,14 @@ import { TaskInterface } from 'src/app/shared/interfaces';
   templateUrl: './footer-tasks.component.html',
   styleUrls: ['./footer-tasks.component.scss']
 })
-export class FooterTasksComponent implements OnChanges {
-  @Input() tasks: TaskInterface[] = [];
+export class FooterTasksComponent {
+  @Input() set tasks(value: TaskInterface[]) {
+    if (!value) return;
+    this.tasksIncompleted = value.filter(task => !task.completed).length;
+    this.textCounter = this.tasksIncompleted === 1 ? 'item left' : 'items left';
+    this.hasCompletedTasks = value.some(task => task.completed);
+    this.hasActiveTasks = value.some(task => !task.completed);
+  }
 
   tasksIncompleted: number = 0;
   textCounter: string = 'items left';
@@ -29,15 +35,6 @@ export class FooterTasksComponent implements OnChanges {
   ngOnInit(): void {
     const routes = this.router.url.split('/');
     this.buttonActive = routes[routes.length - 1];
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['tasks'] && changes['tasks'].currentValue !== changes['tasks'].previousValue) {
-      this.tasksIncompleted = this.tasks.filter(task => !task.completed).length;
-      this.textCounter = this.tasksIncompleted === 1 ? 'item left' : 'items left';
-      this.hasCompletedTasks = this.tasks.some(task => task.completed);
-      this.hasActiveTasks = this.tasks.some(task => !task.completed);
-    }
   }
 
   clearCompleted(): void {

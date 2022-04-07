@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
@@ -12,8 +12,15 @@ import { TaskInterface } from 'src/app/shared/interfaces';
   templateUrl: './header-tasks.component.html',
   styleUrls: ['./header-tasks.component.scss']
 })
-export class HeaderTasksComponent implements OnChanges {
-  @Input() tasks: TaskInterface[] = [];
+export class HeaderTasksComponent {
+  @Input()
+  set tasks(value: TaskInterface[]) {
+    if (!value) return;
+    this.checkedMarkAll = value.every((task: TaskInterface) => task.completed);
+  }
+  get tasks(): TaskInterface[] {
+    return [];
+  }
 
   checkedMarkAll: boolean = false;
 
@@ -21,12 +28,6 @@ export class HeaderTasksComponent implements OnChanges {
     private store: Store<StateInterface>,
     private tasksUtilService: TasksUtilService,
   ) { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['tasks'] && changes['tasks'].currentValue !== changes['tasks'].previousValue) {
-      this.checkedMarkAll = changes['tasks'].currentValue.every((task: TaskInterface) => task.completed);
-    }
-  }
 
   handleChangeInput(value: string): void {
     if (value) {

@@ -17,7 +17,15 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
 export class InputComponent implements ControlValueAccessor {
   @ViewChild('inputChild') inputChild: ElementRef;
 
-  @Input() value?: string = '';
+  @Input()
+  set value(newValue: string) {
+    if (!newValue) return;
+    this.writeValue(newValue);
+  }
+  get value(): string {
+    return '';
+  }
+
   @Input() isDeleteValue?: boolean = false;
   @Input() isEditable: boolean = false;
 
@@ -29,12 +37,6 @@ export class InputComponent implements ControlValueAccessor {
   ngOnInit(): void {
     if (this.value) this.writeValue(this.value);
     if (this.isEditable) this.setDisabledState(this.isEditable);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['value'] && changes['value'].currentValue !== changes['value'].previousValue) {
-      this.writeValue(this.value);
-    }
   }
 
   dblclick(): void {

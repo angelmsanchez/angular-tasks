@@ -55,15 +55,7 @@ describe('FooterTasksComponent', () => {
       completed: false,
       value: 'Task-1',
     }];
-    const changes: any = {
-      tasks: {
-        previousValue: [],
-        currentValue: tasks,
-      }
-    };
     component.tasks = tasks;
-
-    component.ngOnChanges(changes);
 
     expect(component.tasksIncompleted).toEqual(1);
     expect(component.textCounter).toEqual('item left');
@@ -77,15 +69,8 @@ describe('FooterTasksComponent', () => {
       completed: true,
       value: 'Task-1',
     }];
-    const changes: any = {
-      tasks: {
-        previousValue: [],
-        currentValue: tasks,
-      }
-    };
     component.tasks = tasks;
 
-    component.ngOnChanges(changes);
 
     expect(component.tasksIncompleted).toEqual(0);
     expect(component.textCounter).toEqual('items left');
@@ -93,9 +78,7 @@ describe('FooterTasksComponent', () => {
     expect(component.hasActiveTasks).toBeFalsy();
   });
 
-  it('should not changes properties App when enter in the changesd', () => {
-    component.ngOnChanges({});
-
+  it('should not changes properties App when enter in the changes', () => {
     expect(component.tasksIncompleted).toEqual(0);
     expect(component.textCounter).toEqual('items left');
     expect(component.hasCompletedTasks).toBeFalsy();

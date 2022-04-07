@@ -45,44 +45,6 @@ describe('HeaderTasksComponent', () => {
     expect(component).toBeTruthy();
   });
   
-  it('should changes the checkbox property when changes tasks imcompleted', () => {
-    const tasks = [{
-      id: '1',
-      completed: false,
-      value: 'Task-1',
-    }];
-    const changes: any = {
-      tasks: {
-        previousValue: [],
-        currentValue: tasks,
-      }
-    };
-    component.tasks = tasks;
-
-    component.ngOnChanges(changes);
-
-    expect(component.checkedMarkAll).toBeFalsy();
-  });
-
-  it('should changes the checkbox property when changes tasks completed', () => {
-    const tasks = [{
-      id: '1',
-      completed: true,
-      value: 'Task-1',
-    }];
-    const changes: any = {
-      tasks: {
-        previousValue: [],
-        currentValue: tasks,
-      }
-    };
-    component.tasks = tasks;
-
-    component.ngOnChanges(changes);
-
-    expect(component.checkedMarkAll).toBeTruthy();
-  });
-  
   it('should not change the state when change the input and the value is empty', () => {
     const value = '';
 
