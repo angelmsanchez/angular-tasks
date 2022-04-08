@@ -17,22 +17,22 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   formControl: FormControl = new FormControl();
 
-  onChange = (_: any) => {};
+  onChange = () => {};
   onTouch = () => {};
 
   ngOnInit(): void {
     this.writeValue(this.checked);
   }
 
-  writeValue(value: any): void {
+  writeValue(value: boolean): void {
     this.formControl.setValue(value || false);
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: () => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouch = fn;
   }
 

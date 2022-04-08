@@ -4,8 +4,8 @@
   "scripts": {
     "build:prod": "ng build --configuration production",
     "build": "ng build --configuration development",
-    "lint:fix": "eslint src/**/*.{ts,tsx} --quiet --fix",
-    "lint": "eslint */**/*.{js,ts,tsx} --quiet",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint": "eslint */**/*.{js,ts,tsx} --max-warnings 0",
     "ng": "ng",
     "start": "ng serve -o",
     "test": "ng test",

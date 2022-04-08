@@ -4,7 +4,6 @@ import {
   EventEmitter,
   Output,
   Input,
-  SimpleChanges,
   ViewChild,
   ElementRef,
 } from '@angular/core';
@@ -45,19 +44,19 @@ export class InputComponent implements ControlValueAccessor {
     this.inputChild.nativeElement.focus();
   }
 
-  onChange = (_: any) => {};
+  onChange = () => {};
 
   onTouch = () => {};
 
-  writeValue(value: any): void {
+  writeValue(value: unknown): void {
     this.formControl.setValue(value || '');
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: () => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouch = fn;
   }
 

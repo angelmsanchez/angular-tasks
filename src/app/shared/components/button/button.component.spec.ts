@@ -22,6 +22,7 @@ describe('ButtonComponent', () => {
   });
 
   it('should send then event when click the button', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const event: any = {};
     spyOn(component.onClick, 'emit');
 

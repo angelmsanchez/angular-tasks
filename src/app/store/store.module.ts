@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   ],
 })
 export class TaskStoreModule {
-  static forRoot(): ModuleWithProviders<any> {
+  static forRoot(): ModuleWithProviders<unknown> {
     return { ngModule: TaskStoreModule };
   }
 }
