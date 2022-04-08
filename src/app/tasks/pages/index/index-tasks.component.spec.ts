@@ -10,12 +10,8 @@ describe('IndexTasksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-      ],
-      declarations: [
-        IndexTasksComponent,
-      ],
+      imports: [SharedModule],
+      declarations: [IndexTasksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });

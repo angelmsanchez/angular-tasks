@@ -23,12 +23,8 @@ describe('HeaderTasksComponent', () => {
         SharedModule,
         BrowserAnimationsModule,
       ],
-      declarations: [
-        HeaderTasksComponent,
-      ],
-      providers: [
-        TasksUtilService,
-      ],
+      declarations: [HeaderTasksComponent],
+      providers: [TasksUtilService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
     injector = getTestBed();
@@ -44,7 +40,7 @@ describe('HeaderTasksComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('should not change the state when change the input and the value is empty', () => {
     const value = '';
 

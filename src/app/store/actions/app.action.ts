@@ -10,17 +10,17 @@ export const MARK_ALL_COMPLETED_TASKS = '[App] Mark All completed tasks';
 
 export class AddTask implements Action {
   type: string = ADD_TASK;
-  constructor(public payload: TaskInterface) { }
+  constructor(public payload: TaskInterface) {}
 }
 
 export class UpdateTask implements Action {
   type: string = UPDATE_TASK;
-  constructor(public payload: TaskInterface) { }
+  constructor(public payload: TaskInterface) {}
 }
 
 export class DeleteTask implements Action {
   type: string = DELETE_TASK;
-  constructor(public payload: TaskInterface) { }
+  constructor(public payload: TaskInterface) {}
 }
 
 export class ClearCompletedTask implements Action {
@@ -29,5 +29,5 @@ export class ClearCompletedTask implements Action {
 
 export class MarkAllCompletedTask implements Action {
   type: string = MARK_ALL_COMPLETED_TASKS;
-  constructor(public payload: boolean) { }
+  constructor(public payload: boolean) {}
 }

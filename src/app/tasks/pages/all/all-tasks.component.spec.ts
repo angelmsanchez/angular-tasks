@@ -17,13 +17,8 @@ describe('AllTasksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        StoreModule.forRoot(reducers),
-        SharedModule,
-      ],
-      declarations: [
-        AllTasksComponent,
-      ],
+      imports: [StoreModule.forRoot(reducers), SharedModule],
+      declarations: [AllTasksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
     injector = getTestBed();

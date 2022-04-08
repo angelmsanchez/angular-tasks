@@ -12,12 +12,8 @@ describe('RowTaskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        StoreModule.forRoot(reducers),
-      ],
-      declarations: [
-        RowTaskComponent,
-      ],
+      imports: [StoreModule.forRoot(reducers)],
+      declarations: [RowTaskComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });

@@ -17,13 +17,8 @@ describe('CompletedTasksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-        StoreModule.forRoot(reducers),
-      ],
-      declarations: [
-        CompletedTasksComponent,
-      ],
+      imports: [SharedModule, StoreModule.forRoot(reducers)],
+      declarations: [CompletedTasksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
     injector = getTestBed();

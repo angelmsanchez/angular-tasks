@@ -24,9 +24,7 @@ describe('FooterTasksComponent', () => {
         SharedModule,
         RouterTestingModule,
       ],
-      declarations: [
-        FooterTasksComponent,
-      ],
+      declarations: [FooterTasksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
     injector = getTestBed();
@@ -50,11 +48,13 @@ describe('FooterTasksComponent', () => {
   });
 
   it('should changes properties App when changes tasks imcompleted', () => {
-    const tasks = [{
-      id: '1',
-      completed: false,
-      value: 'Task-1',
-    }];
+    const tasks = [
+      {
+        id: '1',
+        completed: false,
+        value: 'Task-1',
+      },
+    ];
     component.tasks = tasks;
 
     expect(component.tasksIncompleted).toEqual(1);
@@ -64,13 +64,14 @@ describe('FooterTasksComponent', () => {
   });
 
   it('should changes properties App when changes tasks completed', () => {
-    const tasks = [{
-      id: '1',
-      completed: true,
-      value: 'Task-1',
-    }];
+    const tasks = [
+      {
+        id: '1',
+        completed: true,
+        value: 'Task-1',
+      },
+    ];
     component.tasks = tasks;
-
 
     expect(component.tasksIncompleted).toEqual(0);
     expect(component.textCounter).toEqual('items left');

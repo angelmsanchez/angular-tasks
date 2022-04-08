@@ -10,8 +10,10 @@ import { environment } from 'src/environments/environment';
   imports: [
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-  ]
+  ],
 })
 export class TaskStoreModule {
-  static forRoot(): ModuleWithProviders<any> { return { ngModule: TaskStoreModule }; }
+  static forRoot(): ModuleWithProviders<any> {
+    return { ngModule: TaskStoreModule };
+  }
 }

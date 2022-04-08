@@ -9,17 +9,15 @@ import { StateInterface } from 'src/app/store/reducers';
 @Component({
   selector: 'app-active-tasks',
   templateUrl: './active-tasks.component.html',
-  styleUrls: ['./active-tasks.component.scss']
+  styleUrls: ['./active-tasks.component.scss'],
 })
 export class ActiveTasksComponent implements OnInit {
   tasks: TaskInterface[] = [];
   tasksFilter: TaskInterface[] = [];
 
-  private subscriptionTasks: Subscription = new Subscription;
+  private subscriptionTasks: Subscription = new Subscription();
 
-  constructor(
-    private store: Store<StateInterface>,
-  ) { }
+  constructor(private store: Store<StateInterface>) {}
 
   ngOnInit(): void {
     this.getTasks();
@@ -30,11 +28,11 @@ export class ActiveTasksComponent implements OnInit {
   }
 
   private getTasks(): void {
-    this.subscriptionTasks = this.store.pipe(
-      select(store => store.app.tasks))
-      .subscribe(tasks => {
+    this.subscriptionTasks = this.store
+      .pipe(select((store) => store.app.tasks))
+      .subscribe((tasks) => {
         this.tasks = [...tasks];
-        this.tasksFilter = [...tasks.filter(task => !task.completed)];
+        this.tasksFilter = [...tasks.filter((task) => !task.completed)];
       });
   }
 }

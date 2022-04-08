@@ -11,12 +11,8 @@ describe('MainTasksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        SharedModule,
-      ],
-      declarations: [
-        MainTasksComponent,
-      ],
+      imports: [SharedModule],
+      declarations: [MainTasksComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });

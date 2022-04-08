@@ -13,7 +13,7 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements ControlValueAccessor {
   @ViewChild('inputChild') inputChild: ElementRef;
@@ -45,9 +45,9 @@ export class InputComponent implements ControlValueAccessor {
     this.inputChild.nativeElement.focus();
   }
 
-  onChange = (_: any) => { };
+  onChange = (_: any) => {};
 
-  onTouch = () => { };
+  onTouch = () => {};
 
   writeValue(value: any): void {
     this.formControl.setValue(value || '');
@@ -62,13 +62,15 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   handleKeyEnter(): void {
-    if (this.value !== this.formControl.value) this.onKeyEnter.emit(this.formControl.value);
+    if (this.value !== this.formControl.value)
+      this.onKeyEnter.emit(this.formControl.value);
     if (this.isDeleteValue) this.writeValue('');
     if (this.isEditable) this.formControl.disable();
   }
 
   handleOnBlur(): void {
-    if (this.value !== this.formControl.value) this.onBlur.emit(this.formControl.value);
+    if (this.value !== this.formControl.value)
+      this.onBlur.emit(this.formControl.value);
     if (this.isEditable) this.formControl.disable();
   }
 

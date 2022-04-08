@@ -9,12 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'tasks',
-    loadChildren: () => import('./tasks/tasks.module').then((m) => m.TasksModule),
+    loadChildren: () =>
+      import('./tasks/tasks.module').then((m) => m.TasksModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

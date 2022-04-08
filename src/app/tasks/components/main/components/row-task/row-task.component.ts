@@ -9,20 +9,20 @@ import * as AppActions from 'src/app/store/actions/';
 @Component({
   selector: 'app-row-task',
   templateUrl: './row-task.component.html',
-  styleUrls: ['./row-task.component.scss']
+  styleUrls: ['./row-task.component.scss'],
 })
 export class RowTaskComponent {
   @Input() task: TaskInterface;
 
-  constructor(
-    private store: Store<StateInterface>,
-  ) { }
+  constructor(private store: Store<StateInterface>) {}
 
   handleCheck(value: boolean): void {
-    this.store.dispatch(new AppActions.UpdateTask({
-      ...this.task,
-      completed: value,
-    }));
+    this.store.dispatch(
+      new AppActions.UpdateTask({
+        ...this.task,
+        completed: value,
+      })
+    );
   }
 
   handleChangeInput(value: string): void {
@@ -30,10 +30,12 @@ export class RowTaskComponent {
       this.handleDelete();
       return;
     }
-    this.store.dispatch(new AppActions.UpdateTask({
-      ...this.task,
-      value,
-    }));
+    this.store.dispatch(
+      new AppActions.UpdateTask({
+        ...this.task,
+        value,
+      })
+    );
   }
 
   handleDelete(): void {

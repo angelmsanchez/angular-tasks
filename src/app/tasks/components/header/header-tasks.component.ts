@@ -10,7 +10,7 @@ import { TaskInterface } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-header-tasks',
   templateUrl: './header-tasks.component.html',
-  styleUrls: ['./header-tasks.component.scss']
+  styleUrls: ['./header-tasks.component.scss'],
 })
 export class HeaderTasksComponent {
   @Input()
@@ -26,16 +26,18 @@ export class HeaderTasksComponent {
 
   constructor(
     private store: Store<StateInterface>,
-    private tasksUtilService: TasksUtilService,
-  ) { }
+    private tasksUtilService: TasksUtilService
+  ) {}
 
   handleChangeInput(value: string): void {
     if (value) {
-      this.store.dispatch(new AppActions.AddTask({
-        id: this.tasksUtilService.getGuid(),
-        value,
-        completed: false,
-      }));
+      this.store.dispatch(
+        new AppActions.AddTask({
+          id: this.tasksUtilService.getGuid(),
+          value,
+          completed: false,
+        })
+      );
     }
   }
 

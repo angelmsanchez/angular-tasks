@@ -14,16 +14,8 @@ import {
 } from './components';
 
 @NgModule({
-  declarations: [
-    CheckboxComponent,
-    InputComponent,
-    ButtonComponent,
-  ],
-  exports: [
-    CheckboxComponent,
-    InputComponent,
-    ButtonComponent,
-  ],
+  declarations: [CheckboxComponent, InputComponent, ButtonComponent],
+  exports: [CheckboxComponent, InputComponent, ButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -34,4 +26,4 @@ import {
     MatFormFieldModule,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}

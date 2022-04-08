@@ -9,16 +9,14 @@ import { StateInterface } from 'src/app/store/reducers';
 @Component({
   selector: 'app-all-tasks',
   templateUrl: './all-tasks.component.html',
-  styleUrls: ['./all-tasks.component.scss']
+  styleUrls: ['./all-tasks.component.scss'],
 })
 export class AllTasksComponent implements OnInit, OnDestroy {
   tasks: TaskInterface[] = [];
 
-  private subscriptionTasks: Subscription = new Subscription;
+  private subscriptionTasks: Subscription = new Subscription();
 
-  constructor(
-    private store: Store<StateInterface>,
-  ) { }
+  constructor(private store: Store<StateInterface>) {}
 
   ngOnInit(): void {
     this.getTasks();
@@ -29,11 +27,10 @@ export class AllTasksComponent implements OnInit, OnDestroy {
   }
 
   private getTasks(): void {
-    this.subscriptionTasks = this.store.pipe(
-      select(store => store.app.tasks))
-      .subscribe(tasks => {
+    this.subscriptionTasks = this.store
+      .pipe(select((store) => store.app.tasks))
+      .subscribe((tasks) => {
         this.tasks = [...tasks];
       });
   }
-
 }

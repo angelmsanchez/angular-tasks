@@ -32,14 +32,7 @@ import { TasksUtilService } from './services';
     MainTasksComponent,
     RowTaskComponent,
   ],
-  imports: [
-    CommonModule,
-    TasksRoutingModule,
-    SharedModule,
-    MatIconModule,
-  ],
-  providers: [
-    TasksUtilService,
-  ],
+  imports: [CommonModule, TasksRoutingModule, SharedModule, MatIconModule],
+  providers: [TasksUtilService],
 })
-export class TasksModule { }
+export class TasksModule {}

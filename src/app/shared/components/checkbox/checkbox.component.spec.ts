@@ -10,13 +10,8 @@ describe('CheckboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-      ],
-      declarations: [
-        CheckboxComponent,
-      ],
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [CheckboxComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });

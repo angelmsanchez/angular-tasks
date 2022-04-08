@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  OnInit,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 
 import { MatCheckboxChange } from '@angular/material/checkbox';
@@ -23,8 +17,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   formControl: FormControl = new FormControl();
 
-  onChange = (_: any) => { };
-  onTouch = () => { };
+  onChange = (_: any) => {};
+  onTouch = () => {};
 
   ngOnInit(): void {
     this.writeValue(this.checked);

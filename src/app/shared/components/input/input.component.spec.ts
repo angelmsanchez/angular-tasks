@@ -10,13 +10,8 @@ describe('InputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-        ReactiveFormsModule,
-      ],
-      declarations: [
-        InputComponent,
-      ],
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [InputComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     });
   });

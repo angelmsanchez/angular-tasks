@@ -10,15 +10,15 @@ import { TaskInterface } from 'src/app/shared/interfaces';
 @Component({
   selector: 'app-footer-tasks',
   templateUrl: './footer-tasks.component.html',
-  styleUrls: ['./footer-tasks.component.scss']
+  styleUrls: ['./footer-tasks.component.scss'],
 })
 export class FooterTasksComponent {
   @Input() set tasks(value: TaskInterface[]) {
     if (!value) return;
-    this.tasksIncompleted = value.filter(task => !task.completed).length;
+    this.tasksIncompleted = value.filter((task) => !task.completed).length;
     this.textCounter = this.tasksIncompleted === 1 ? 'item left' : 'items left';
-    this.hasCompletedTasks = value.some(task => task.completed);
-    this.hasActiveTasks = value.some(task => !task.completed);
+    this.hasCompletedTasks = value.some((task) => task.completed);
+    this.hasActiveTasks = value.some((task) => !task.completed);
   }
 
   tasksIncompleted = 0;
@@ -27,10 +27,7 @@ export class FooterTasksComponent {
   hasCompletedTasks = false;
   hasActiveTasks = false;
 
-  constructor(
-    private store: Store<StateInterface>,
-    private router: Router,
-  ) { }
+  constructor(private store: Store<StateInterface>, private router: Router) {}
 
   ngOnInit(): void {
     const routes = this.router.url.split('/');
