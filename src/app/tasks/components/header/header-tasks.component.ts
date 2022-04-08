@@ -22,7 +22,7 @@ export class HeaderTasksComponent {
     return [];
   }
 
-  checkedMarkAll: boolean = false;
+  checkedMarkAll = false;
 
   constructor(
     private store: Store<StateInterface>,

@@ -3,9 +3,6 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TasksUtilService {
 
-  constructor(
-  ) { }
-
   getGuid(): string {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,

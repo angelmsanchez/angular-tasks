@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import {
   Component,
   EventEmitter,
@@ -15,8 +16,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./checkbox.component.scss'],
 })
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
-  @Input() title: string = '';
-  @Input() checked: boolean = false;
+  @Input() title = '';
+  @Input() checked = false;
 
   @Output() onChecked: EventEmitter<boolean> = new EventEmitter();
 

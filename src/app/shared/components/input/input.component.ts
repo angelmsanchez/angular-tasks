@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import {
   Component,
   EventEmitter,
@@ -27,7 +28,7 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   @Input() isDeleteValue?: boolean = false;
-  @Input() isEditable: boolean = false;
+  @Input() isEditable = false;
 
   @Output() onKeyEnter: EventEmitter<string> = new EventEmitter();
   @Output() onBlur: EventEmitter<string> = new EventEmitter();

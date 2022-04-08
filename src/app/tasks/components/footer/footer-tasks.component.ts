@@ -21,11 +21,11 @@ export class FooterTasksComponent {
     this.hasActiveTasks = value.some(task => !task.completed);
   }
 
-  tasksIncompleted: number = 0;
-  textCounter: string = 'items left';
-  buttonActive: string = '';
-  hasCompletedTasks: boolean = false;
-  hasActiveTasks: boolean = false;
+  tasksIncompleted = 0;
+  textCounter = 'items left';
+  buttonActive = '';
+  hasCompletedTasks = false;
+  hasActiveTasks = false;
 
   constructor(
     private store: Store<StateInterface>,

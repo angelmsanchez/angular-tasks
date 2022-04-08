@@ -11,8 +11,8 @@ import {
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-  @Input() title: string = '';
-  @Input() active: boolean = false;
+  @Input() title = '';
+  @Input() active = false;
 
   @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter();
 
