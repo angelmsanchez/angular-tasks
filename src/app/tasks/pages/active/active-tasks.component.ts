@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { StateInterface } from 'src/app/store/reducers';
   templateUrl: './active-tasks.component.html',
   styleUrls: ['./active-tasks.component.scss'],
 })
-export class ActiveTasksComponent implements OnInit {
+export class ActiveTasksComponent implements OnInit, OnDestroy {
   tasks: TaskInterface[] = [];
   tasksFilter: TaskInterface[] = [];
 

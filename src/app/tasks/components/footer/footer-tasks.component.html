@@ -2,14 +2,14 @@
   <div class="footer__counter">
     {{ tasksIncompleted }} {{ textCounter }}
   </div>
-  <app-button title="All" [active]="buttonActive === 'tasks'" (click)="navigateTo('/tasks')"></app-button>
+  <app-button title="All" [active]="buttonActive === 'tasks'" (oneClick)="navigateTo('/tasks')"></app-button>
   <app-button *ngIf="hasActiveTasks" title="Active" [active]="buttonActive === 'active'"
-    (click)="navigateTo('/tasks/active')"></app-button>
+    (oneClick)="navigateTo('/tasks/active')"></app-button>
 
   <app-button *ngIf="hasCompletedTasks" title="Completed" [active]="buttonActive === 'completed'"
-    (click)="navigateTo('/tasks/completed')"></app-button>
+    (oneClick)="navigateTo('/tasks/completed')"></app-button>
 
   <div class="footer__clear-completed">
-    <app-button *ngIf="hasCompletedTasks" title="Clear completed" (click)="clearCompleted()"></app-button>
+    <app-button *ngIf="hasCompletedTasks" title="Clear completed" (oneClick)="clearCompleted()"></app-button>
   </div>
 </section>

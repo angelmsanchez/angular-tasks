@@ -9,9 +9,9 @@ export class ButtonComponent {
   @Input() title = '';
   @Input() active = false;
 
-  @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter();
+  @Output() oneClick: EventEmitter<MouseEvent> = new EventEmitter();
 
   handleClick(event: MouseEvent): void {
-    this.onClick.emit(event);
+    this.oneClick.emit(event);
   }
 }

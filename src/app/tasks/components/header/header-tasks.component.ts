@@ -16,18 +16,20 @@ export class HeaderTasksComponent {
   @Input()
   set tasks(value: TaskInterface[]) {
     if (!value) return;
+    this.#tasks = [...value];
     this.checkedMarkAll = value.every((task: TaskInterface) => task.completed);
   }
   get tasks(): TaskInterface[] {
-    return [];
+    return this.#tasks;
   }
 
   checkedMarkAll = false;
+  #tasks: TaskInterface[] = [];
 
   constructor(
     private store: Store<StateInterface>,
     private tasksUtilService: TasksUtilService
-  ) {}
+  ) { }
 
   handleChangeInput(value: string): void {
     if (value) {

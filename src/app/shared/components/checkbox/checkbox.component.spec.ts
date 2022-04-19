@@ -28,10 +28,10 @@ describe('CheckboxComponent', () => {
   it('should send then event when click the checkbox', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const event: any = {};
-    spyOn(component.onChecked, 'emit');
+    spyOn(component.check, 'emit');
 
     component.clickCheckbox(event);
 
-    expect(component.onChecked.emit).toHaveBeenCalled();
+    expect(component.check.emit).toHaveBeenCalled();
   });
 });

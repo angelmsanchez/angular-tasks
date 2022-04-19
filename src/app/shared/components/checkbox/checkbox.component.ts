@@ -13,7 +13,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() title = '';
   @Input() checked = false;
 
-  @Output() onChecked: EventEmitter<boolean> = new EventEmitter();
+  @Output() check: EventEmitter<boolean> = new EventEmitter();
 
   formControl: FormControl = new FormControl();
 
@@ -37,6 +37,6 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   }
 
   clickCheckbox(event: MatCheckboxChange): void {
-    this.onChecked.emit(event.checked);
+    this.check.emit(event.checked);
   }
 }

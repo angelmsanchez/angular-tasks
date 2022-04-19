@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import {
   Component,
   EventEmitter,
@@ -6,6 +5,7 @@ import {
   Input,
   ViewChild,
   ElementRef,
+  OnInit,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 
@@ -14,25 +14,27 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor, OnInit {
   @ViewChild('inputChild') inputChild: ElementRef;
 
   @Input()
   set value(newValue: string) {
     if (!newValue) return;
+    this.#value = newValue;
     this.writeValue(newValue);
   }
   get value(): string {
-    return '';
+    return this.#value;
   }
 
   @Input() isDeleteValue?: boolean = false;
   @Input() isEditable = false;
 
-  @Output() onKeyEnter: EventEmitter<string> = new EventEmitter();
-  @Output() onBlur: EventEmitter<string> = new EventEmitter();
+  @Output() keyEnter: EventEmitter<string> = new EventEmitter();
+  @Output() blurInput: EventEmitter<string> = new EventEmitter();
 
   formControl: FormControl = new FormControl();
+  #value: string = '';
 
   ngOnInit(): void {
     if (this.value) this.writeValue(this.value);
@@ -44,9 +46,9 @@ export class InputComponent implements ControlValueAccessor {
     this.inputChild.nativeElement.focus();
   }
 
-  onChange = () => {};
+  onChange = () => { };
 
-  onTouch = () => {};
+  onTouch = () => { };
 
   writeValue(value: unknown): void {
     this.formControl.setValue(value || '');
@@ -62,14 +64,14 @@ export class InputComponent implements ControlValueAccessor {
 
   handleKeyEnter(): void {
     if (this.value !== this.formControl.value)
-      this.onKeyEnter.emit(this.formControl.value);
+      this.keyEnter.emit(this.formControl.value);
     if (this.isDeleteValue) this.writeValue('');
     if (this.isEditable) this.formControl.disable();
   }
 
   handleOnBlur(): void {
     if (this.value !== this.formControl.value)
-      this.onBlur.emit(this.formControl.value);
+      this.blurInput.emit(this.formControl.value);
     if (this.isEditable) this.formControl.disable();
   }
 

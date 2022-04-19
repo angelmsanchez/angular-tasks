@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { TaskInterface } from 'src/app/shared/interfaces';
   templateUrl: './footer-tasks.component.html',
   styleUrls: ['./footer-tasks.component.scss'],
 })
-export class FooterTasksComponent {
+export class FooterTasksComponent implements OnInit {
   @Input() set tasks(value: TaskInterface[]) {
     if (!value) return;
     this.tasksIncompleted = value.filter((task) => !task.completed).length;

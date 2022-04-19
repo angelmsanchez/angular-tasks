@@ -1,7 +1,7 @@
 <section class="header-tasks-container">
   <div class="header-tasks-container__checkbox">
-    <app-checkbox *ngIf="tasks.length > 0" [checked]="checkedMarkAll" title="Mark All" (onChecked)="markAll($event)">
+    <app-checkbox *ngIf="tasks.length > 0" [checked]="checkedMarkAll" title="Mark All" (check)="markAll($event)">
     </app-checkbox>
   </div>
-  <app-input [isDeleteValue]="true" (onKeyEnter)="handleChangeInput($event)"></app-input>
+  <app-input [isDeleteValue]="true" (keyEnter)="handleChangeInput($event)"></app-input>
 </section>
